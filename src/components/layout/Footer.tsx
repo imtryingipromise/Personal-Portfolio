@@ -81,7 +81,7 @@ export function Footer({ isDark }: FooterProps) {
 
                         {/* Email */}
                         <a
-                            href={`https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`} target="_blank" rel="noopener noreferrer"
+                            href={/Android|iPhone|iPad|iPod/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '') ? `mailto:${cv.contact.email}` : `https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`} target="_blank" rel="noopener noreferrer"
                             className="font-sans font-medium text-[13px] transition-colors duration-200 break-all"
                             style={{ color: textMuted, textDecoration: 'none' }}
                             onMouseEnter={(e) => {

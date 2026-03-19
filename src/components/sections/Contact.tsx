@@ -9,12 +9,16 @@ interface ContactProps {
     isDark: boolean;
 }
 
+const isMobile = () => /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
 const contactItems = [
     {
         icon: Mail,
         label: 'Email',
         value: cv.contact.email,
-        href: `https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`,
+        href: isMobile()
+            ? `mailto:${cv.contact.email}`
+            : `https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`,
         isExternal: true,
     },
     {
@@ -109,7 +113,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                     borderWidth={1.5}
                                 />
                                 <a
-                                    href={`https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`}
+                                    href={isMobile() ? `mailto:${cv.contact.email}` : `https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="relative inline-flex items-center gap-2 font-sans font-semibold rounded-full transition-all duration-300"
