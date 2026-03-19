@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Github } from 'lucide-react';
+import { Mail, MapPin, ArrowUpRight, Linkedin, Github } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
@@ -14,15 +14,8 @@ const contactItems = [
         icon: Mail,
         label: 'Email',
         value: cv.contact.email,
-        href: `mailto:${cv.contact.email}`,
-        isExternal: false,
-    },
-    {
-        icon: Phone,
-        label: 'Phone',
-        value: cv.contact.phone,
-        href: `tel:${cv.contact.phone.replace(/\s/g, '')}`,
-        isExternal: false,
+        href: `https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`,
+        isExternal: true,
     },
     {
         icon: MapPin,
@@ -97,7 +90,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                             className="font-sans font-normal"
                             style={{ fontSize: 17, lineHeight: 1.7, color: textMuted }}
                         >
-                            Feel free to reach out via email or phone for academic collaborations,
+                            Feel free to reach out for academic collaborations,
                             internship opportunities, or any project inquiries.
                         </p>
 
@@ -116,7 +109,9 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                     borderWidth={1.5}
                                 />
                                 <a
-                                    href={`mailto:${cv.contact.email}`}
+                                    href={`https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="relative inline-flex items-center gap-2 font-sans font-semibold rounded-full transition-all duration-300"
                                     style={{
                                         height: 48,

@@ -334,7 +334,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                     borderWidth={1.5}
                                 />
                                 <a
-                                    href={`mailto:${cv.contact.email}`}
+                                    href={`https://mail.google.com/mail/?view=cm&to=${cv.contact.email}`} target="_blank" rel="noopener noreferrer"
                                     className="relative inline-flex items-center gap-2 font-sans font-semibold rounded-full transition-all duration-300"
                                     style={{
                                         height: 48,
