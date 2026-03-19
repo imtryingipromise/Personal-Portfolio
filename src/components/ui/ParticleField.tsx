@@ -60,7 +60,7 @@ export function ParticleField({ isDark }: ParticleFieldProps) {
         window.addEventListener('mousemove', handleMouseMove, { passive: true });
         window.addEventListener('mouseleave', handleMouseLeave);
 
-        const dotColor = isDark ? '245,245,245' : '0,0,0';
+        const dotColor = isDark ? '245,245,245' : '30,30,30';
 
         function animate() {
             ctx!.clearRect(0, 0, width, height);

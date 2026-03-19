@@ -47,7 +47,7 @@ export default function GradientBackground({ isDark = true }: GradientBackground
       ctx!.clearRect(0, 0, width, height);
 
       // Base background
-      ctx!.fillStyle = isDark ? "#000000" : "#FFFFFF";
+      ctx!.fillStyle = isDark ? "#000000" : "#F0F0F0";
       ctx!.fillRect(0, 0, width, height);
 
       const mx = mouseRef.current.x * width;
@@ -73,7 +73,7 @@ export default function GradientBackground({ isDark = true }: GradientBackground
           const size = 0.6 + proximity * 2.5;
           const alpha = isDark
             ? 0.08 + proximity * 0.45
-            : 0.06 + proximity * 0.35;
+            : 0.1 + proximity * 0.5;
 
           // Subtle wave ripple
           const wave = Math.sin(dist * 0.02 - time * 0.002) * 0.5 + 0.5;

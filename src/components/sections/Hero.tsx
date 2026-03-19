@@ -11,9 +11,9 @@ interface HeroProps {
 }
 
 export function Hero({ isDark }: HeroProps) {
-    const textPrimary   = isDark ? '#F5F5F5' : '#000000';
-    const textSecondary = isDark ? '#B8B8B8' : '#555555';
-    const borderColor   = isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.12)';
+    const textPrimary   = isDark ? '#F5F5F5' : '#111111';
+    const textSecondary = isDark ? '#B8B8B8' : '#444444';
+    const borderColor   = isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.15)';
 
     const scrollTo = (id: string) =>
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -48,7 +48,7 @@ export function Hero({ isDark }: HeroProps) {
                         color: 'transparent',
                         WebkitTextStroke: isDark
                             ? '1.5px rgba(255,255,255,0.06)'
-                            : '1.5px rgba(0,0,0,0.06)',
+                            : '2px rgba(0,0,0,0.08)',
                         userSelect: 'none',
                     }}
                 >

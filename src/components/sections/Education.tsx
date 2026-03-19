@@ -12,10 +12,10 @@ interface EducationProps {
 }
 
 export function Education({ isDark }: EducationProps): JSX.Element {
-    const bg          = isDark ? '#0A0A0A' : '#F5F5F5';
-    const textPrimary = isDark ? '#F5F5F5' : '#000000';
-    const textMuted   = isDark ? '#B8B8B8' : '#555555';
-    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
+    const bg          = isDark ? '#0A0A0A' : '#E8E8E8';
+    const textPrimary = isDark ? '#F5F5F5' : '#111111';
+    const textMuted   = isDark ? '#B8B8B8' : '#444444';
+    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
     const cardBg      = isDark ? '#0D0D0D' : '#FFFFFF';
 
 
@@ -23,7 +23,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
         <section
             id="education"
             className="w-full relative overflow-hidden"
-            style={{ background: isDark ? '#0A0A0A' : '#F5F5F5', paddingTop: 120, paddingBottom: 120 }}
+            style={{ background: isDark ? '#0A0A0A' : '#E8E8E8', paddingTop: 120, paddingBottom: 120 }}
         >
             {/* Gradient Bars Background */}
             <GradientBars

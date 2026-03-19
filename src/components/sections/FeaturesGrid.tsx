@@ -49,13 +49,13 @@ const skillCategories = [
 ];
 
 export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
-    const bg          = isDark ? '#000000' : '#FFFFFF';
-    const textPrimary = isDark ? '#F5F5F5' : '#000000';
-    const textMuted   = isDark ? '#B8B8B8' : '#555555';
-    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
-    const cardBg      = isDark ? '#0D0D0D' : '#F8F8F8';
-    const tagBg       = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.05)';
-    const tagColor    = isDark ? 'rgba(245,245,245,0.6)' : 'rgba(0,0,0,0.55)';
+    const bg          = isDark ? '#000000' : '#F0F0F0';
+    const textPrimary = isDark ? '#F5F5F5' : '#111111';
+    const textMuted   = isDark ? '#B8B8B8' : '#444444';
+    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
+    const cardBg      = isDark ? '#0D0D0D' : '#FFFFFF';
+    const tagBg       = isDark ? 'rgba(255,255,255,0.06)' : '#F0F0F0';
+    const tagColor    = isDark ? 'rgba(245,245,245,0.6)' : '#333333';
 
     return (
         <section

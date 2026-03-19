@@ -54,11 +54,11 @@ const socialItems = [
 
 
 export function Contact({ isDark }: ContactProps): JSX.Element {
-    const bg          = isDark ? '#000000' : '#FFFFFF';
-    const textPrimary = isDark ? '#F5F5F5' : '#000000';
-    const textMuted   = isDark ? '#B8B8B8' : '#555555';
-    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
-    const cardBg      = isDark ? '#0D0D0D' : '#F8F8F8';
+    const bg          = isDark ? '#000000' : '#F0F0F0';
+    const textPrimary = isDark ? '#F5F5F5' : '#111111';
+    const textMuted   = isDark ? '#B8B8B8' : '#444444';
+    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
+    const cardBg      = isDark ? '#0D0D0D' : '#FFFFFF';
 
     return (
         <section

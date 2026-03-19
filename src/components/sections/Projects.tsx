@@ -41,19 +41,19 @@ export function Projects({ isDark }: ProjectsProps) {
     const Icon        = projectIcons[activeIndex];
 
     // ── Design tokens ────────────────────────────────────────────────────────
-    const bg           = isDark ? '#000000' : '#FFFFFF';
-    const cardBg       = isDark ? '#0A0A0A'  : '#F5F5F5';
-    const visualBg     = isDark ? '#0D0D0D'  : '#EBEBEB';
-    const iconCardBg   = isDark ? '#141414'  : '#E0E0E0';
-    const textPrimary  = isDark ? '#F5F5F5'  : '#000000';
-    const textMuted    = isDark ? '#B8B8B8'  : '#555555';
-    const borderColor  = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
-    const borderHover  = isDark ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.18)';
-    const tagBg        = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)';
-    const tagColor     = isDark ? 'rgba(245,245,245,0.65)' : 'rgba(0,0,0,0.55)';
-    const activeBg     = isDark ? '#F5F5F5'  : '#000000';
+    const bg           = isDark ? '#000000' : '#F0F0F0';
+    const cardBg       = isDark ? '#0A0A0A'  : '#FFFFFF';
+    const visualBg     = isDark ? '#0D0D0D'  : '#E8E8E8';
+    const iconCardBg   = isDark ? '#141414'  : '#D8D8D8';
+    const textPrimary  = isDark ? '#F5F5F5'  : '#111111';
+    const textMuted    = isDark ? '#B8B8B8'  : '#444444';
+    const borderColor  = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
+    const borderHover  = isDark ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.22)';
+    const tagBg        = isDark ? 'rgba(255,255,255,0.08)' : '#F0F0F0';
+    const tagColor     = isDark ? 'rgba(245,245,245,0.65)' : '#333333';
+    const activeBg     = isDark ? '#F5F5F5'  : '#111111';
     const activeText   = isDark ? '#000000'  : '#FFFFFF';
-    const inactiveText = isDark ? 'rgba(245,245,245,0.45)' : 'rgba(0,0,0,0.45)';
+    const inactiveText = isDark ? 'rgba(245,245,245,0.45)' : 'rgba(0,0,0,0.5)';
 
     return (
         <section

@@ -10,6 +10,8 @@ import { Contact } from '@/components/sections/Contact';
 import { useTheme } from '@/lib/useTheme';
 import { NoiseOverlay } from '@/components/ui/NoiseOverlay';
 import { ParticleField } from '@/components/ui/ParticleField';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { MarqueeBanner } from '@/components/ui/MarqueeBanner';
 
 function App() {
     const { isDark, toggle } = useTheme();
@@ -18,12 +20,13 @@ function App() {
         <div
             className="min-h-screen flex flex-col w-full overflow-x-hidden"
             style={{
-                background: isDark ? '#000000' : '#FFFFFF',
-                color: isDark ? '#F5F5F5' : '#000000',
+                background: isDark ? '#000000' : '#F0F0F0',
+                color: isDark ? '#F5F5F5' : '#111111',
                 transition: 'background-color 0.3s ease, color 0.3s ease',
             }}
         >
             {/* Global effects */}
+            <ScrollProgress isDark={isDark} />
             <ParticleField isDark={isDark} />
             <NoiseOverlay />
 
@@ -31,6 +34,8 @@ function App() {
             <main className="flex-grow relative z-[1]">
                 {/* 1. Hero */}
                 <Hero isDark={isDark} />
+                {/* Marquee strip */}
+                <MarqueeBanner isDark={isDark} />
                 {/* 2. About */}
                 <About isDark={isDark} />
                 {/* 3. Skills */}

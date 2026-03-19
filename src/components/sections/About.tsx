@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { GlowingEffect } from '@/components/ui/GlowingEffect';
@@ -7,15 +7,6 @@ import { GlowingEffect } from '@/components/ui/GlowingEffect';
 interface AboutProps {
     isDark: boolean;
 }
-
-const highlights = [
-    'Concurrent systems that handle real-time multi-process coordination',
-    'Data-driven insights through cleaning, analysis, and visualization',
-    'Web interfaces built with modern front-end fundamentals',
-    'Robust database architectures with strict integrity rules',
-    'Linux server environments configured for production use',
-    'Interactive applications with physics and game logic from scratch',
-];
 
 const skills = [
     { category: 'Languages',   items: ['Python', 'Java', 'C++', 'C#', 'SQL'] },
@@ -25,19 +16,17 @@ const skills = [
 ];
 
 export function About({ isDark }: AboutProps): JSX.Element {
-    const bg          = isDark ? '#0A0A0A' : '#F5F5F5';
-    const textPrimary = isDark ? '#F5F5F5' : '#000000';
-    const textMuted   = isDark ? '#B8B8B8' : '#555555';
-    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
-    const tagBg       = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)';
-    const tagColor    = isDark ? 'rgba(245,245,245,0.7)' : 'rgba(0,0,0,0.65)';
-    const checkColor  = isDark ? '#F5F5F5' : '#000000';
+    const textPrimary = isDark ? '#F5F5F5' : '#111111';
+    const textMuted   = isDark ? '#B8B8B8' : '#444444';
+    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.12)';
+    const tagBg       = isDark ? 'rgba(255,255,255,0.08)' : '#FFFFFF';
+    const tagColor    = isDark ? 'rgba(245,245,245,0.7)' : '#333333';
 
     return (
         <section
             id="about"
             className="w-full relative overflow-hidden"
-            style={{ background: 'transparent', paddingTop: 120, paddingBottom: 120 }}
+            style={{ background: isDark ? '#0A0A0A' : '#E8E8E8', paddingTop: 120, paddingBottom: 120 }}
         >
             <div className="coda-container relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -49,19 +38,19 @@ export function About({ isDark }: AboutProps): JSX.Element {
                         transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
                         className="flex flex-col gap-8"
                     >
-                        {/* Avatar / initials block — with glow */}
+                        {/* Avatar / initials block with animated border */}
                         <div
-                            className="relative w-full rounded-[28px] overflow-hidden flex items-center justify-center transition-all duration-300"
+                            className="relative w-full rounded-[28px] overflow-hidden flex items-center justify-center transition-all duration-500 group"
                             style={{
                                 aspectRatio: '4 / 3',
-                                background: isDark ? '#0D0D0D' : '#E8E8E8',
+                                background: isDark ? '#0D0D0D' : '#DEDEDE',
                                 border: `1px solid ${borderColor}`,
                             }}
                             onMouseEnter={(e) => {
                                 (e.currentTarget as HTMLElement).style.transform = 'scale(1.01)';
                                 (e.currentTarget as HTMLElement).style.borderColor = isDark
-                                    ? 'rgba(255,255,255,0.12)'
-                                    : 'rgba(0,0,0,0.12)';
+                                    ? 'rgba(255,255,255,0.15)'
+                                    : 'rgba(0,0,0,0.15)';
                             }}
                             onMouseLeave={(e) => {
                                 (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
@@ -76,31 +65,36 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                 inactiveZone={0.01}
                                 borderWidth={1.5}
                             />
-                            {/* Subtle radial glow */}
+                            {/* Animated rings */}
                             <div
                                 aria-hidden="true"
-                                className="absolute inset-0 pointer-events-none"
-                                style={{
-                                    background: isDark
-                                        ? 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 60%)'
-                                        : 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,0,0,0.04) 0%, transparent 60%)',
-                                }}
-                            />
+                                className="absolute inset-0 pointer-events-none flex items-center justify-center"
+                            >
+                                {[180, 220, 260].map((size, i) => (
+                                    <motion.div
+                                        key={size}
+                                        className="absolute rounded-full"
+                                        style={{
+                                            width: size,
+                                            height: size,
+                                            border: `1px solid ${isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.06)'}`,
+                                        }}
+                                        animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+                                        transition={{ duration: 20 + i * 10, repeat: Infinity, ease: 'linear' }}
+                                    />
+                                ))}
+                            </div>
                             <div
-                                className="relative w-32 h-32 rounded-full flex items-center justify-center transition-all duration-300"
+                                className="relative w-32 h-32 rounded-full flex items-center justify-center transition-all duration-500"
                                 style={{
                                     background: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
                                     border: `1px solid ${borderColor}`,
                                 }}
                                 onMouseEnter={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = 'scale(1.05)';
-                                    (e.currentTarget as HTMLElement).style.borderColor = isDark
-                                        ? 'rgba(255,255,255,0.2)'
-                                        : 'rgba(0,0,0,0.2)';
+                                    (e.currentTarget as HTMLElement).style.transform = 'scale(1.08)';
                                 }}
                                 onMouseLeave={(e) => {
                                     (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-                                    (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                 }}
                             >
                                 <GlowingEffect
@@ -120,11 +114,11 @@ export function About({ isDark }: AboutProps): JSX.Element {
                             </div>
                         </div>
 
-                        {/* Education mini-card — with glow */}
+                        {/* Education mini-card */}
                         <div
                             className="relative rounded-[20px] p-6 transition-all duration-300"
                             style={{
-                                background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)',
+                                background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.06)',
                                 border: `1px solid ${borderColor}`,
                             }}
                             onMouseEnter={(e) => {
@@ -193,33 +187,55 @@ export function About({ isDark }: AboutProps): JSX.Element {
                             </h2>
                         </div>
 
-                        {/* Highlights list */}
-                        <div className="flex flex-col gap-4">
-                            {highlights.map((item) => (
-                                <div key={item} className="flex items-start gap-3">
-                                    <CheckCircle2
-                                        size={20}
-                                        strokeWidth={2}
-                                        style={{ color: checkColor, flexShrink: 0, marginTop: 2 }}
-                                    />
-                                    <span
-                                        className="font-sans font-normal"
-                                        style={{ fontSize: 15, lineHeight: 1.6, color: textMuted }}
-                                    >
-                                        {item}
-                                    </span>
-                                </div>
-                            ))}
+                        {/* Bio paragraphs */}
+                        <div className="flex flex-col gap-5">
+                            <p
+                                className="font-sans font-normal"
+                                style={{ fontSize: 16, lineHeight: 1.75, color: textMuted }}
+                            >
+                                I'm Muqeet — a CS student at APU specializing in AI. I got into programming
+                                because I liked the idea of building things that actually work, and since then
+                                I've been diving into everything from concurrent C++ systems to full-stack web apps.
+                            </p>
+                            <p
+                                className="font-sans font-normal"
+                                style={{ fontSize: 16, lineHeight: 1.75, color: textMuted }}
+                            >
+                                My projects range from a multithreaded airport simulator to a 4-level narrative
+                                platformer with boss fights and NPC dialogue. I enjoy the challenge of taking a
+                                vague idea and turning it into something polished — whether that's a database
+                                schema, a game engine, or a server config.
+                            </p>
+                            <p
+                                className="font-sans font-normal"
+                                style={{ fontSize: 16, lineHeight: 1.75, color: textMuted }}
+                            >
+                                Right now I'm looking for an internship where I can contribute meaningfully,
+                                learn fast, and work alongside people who care about writing good software.
+                            </p>
                         </div>
 
-                        {/* Skills grid — with glow */}
-                        <div className="grid grid-cols-2 gap-4">
+                        {/* Skills grid — staggered reveal */}
+                        <motion.div
+                            className="grid grid-cols-2 gap-4"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={{
+                                hidden: {},
+                                visible: { transition: { staggerChildren: 0.08 } },
+                            }}
+                        >
                             {skills.map(({ category, items }) => (
-                                <div
+                                <motion.div
                                     key={category}
+                                    variants={{
+                                        hidden:  { opacity: 0, y: 20 },
+                                        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
+                                    }}
                                     className="relative flex flex-col gap-2 p-4 rounded-[16px] transition-all duration-300"
                                     style={{
-                                        background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)',
+                                        background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.06)',
                                         border: `1px solid ${borderColor}`,
                                     }}
                                     onMouseEnter={(e) => {
@@ -262,13 +278,12 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                             </span>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
 
-                        {/* CTAs — with glow */}
+                        {/* CTAs */}
                         <div className="flex flex-wrap items-center gap-3 pt-2">
-                            {/* Primary — solid button */}
                             <div
                                 className="relative rounded-full"
                                 style={{ border: '1px solid transparent' }}
@@ -282,7 +297,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                     borderWidth={1.5}
                                 />
                                 <button
-                                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                    onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                                     className="relative inline-flex items-center gap-2 font-sans font-semibold rounded-full transition-all duration-300"
                                     style={{
                                         height: 48,
@@ -301,12 +316,11 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                         (e.currentTarget as HTMLElement).style.opacity = '1';
                                     }}
                                 >
-                                    Get in Touch
+                                    See My Work
                                     <ArrowRight size={16} strokeWidth={2.5} />
                                 </button>
                             </div>
 
-                            {/* Secondary — outline button */}
                             <div
                                 className="relative rounded-full"
                                 style={{ border: `1px solid ${borderColor}` }}

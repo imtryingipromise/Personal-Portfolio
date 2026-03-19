@@ -32,10 +32,10 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
         setMobileOpen(false);
     };
 
-    const bg          = isDark ? '#000000' : '#FFFFFF';
-    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
-    const textPrimary = isDark ? '#F5F5F5' : '#000000';
-    const textMuted   = isDark ? 'rgba(245,245,245,0.5)' : 'rgba(0,0,0,0.5)';
+    const bg          = isDark ? '#000000' : '#F0F0F0';
+    const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
+    const textPrimary = isDark ? '#F5F5F5' : '#111111';
+    const textMuted   = isDark ? 'rgba(245,245,245,0.5)' : 'rgba(0,0,0,0.55)';
 
     return (
         <>
@@ -43,7 +43,7 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                 className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
                 style={{
                     background: scrolled
-                        ? isDark ? 'rgba(0,0,0,0.88)' : 'rgba(255,255,255,0.88)'
+                        ? isDark ? 'rgba(0,0,0,0.88)' : 'rgba(240,240,240,0.88)'
                         : bg,
                     borderBottom: `1px solid ${scrolled ? borderColor : 'transparent'}`,
                     backdropFilter: scrolled ? 'blur(16px)' : 'none',
@@ -173,7 +173,7 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                         transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                         className="fixed top-16 left-0 right-0 z-40 flex flex-col"
                         style={{
-                            background: isDark ? '#0A0A0A' : '#FFFFFF',
+                            background: isDark ? '#0A0A0A' : '#E8E8E8',
                             borderBottom: `1px solid ${borderColor}`,
                         }}
                     >

@@ -30,10 +30,10 @@ const footerNav = [
 ];
 
 export function Footer({ isDark }: FooterProps) {
-    const bg          = isDark ? '#000000' : '#F5F5F5';
+    const bg          = isDark ? '#000000' : '#E8E8E8';
     const borderColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)';
-    const textPrimary = isDark ? '#F5F5F5' : '#000000';
-    const textMuted   = isDark ? '#B8B8B8' : '#555555';
+    const textPrimary = isDark ? '#F5F5F5' : '#111111';
+    const textMuted   = isDark ? '#B8B8B8' : '#444444';
 
     const scrollTo = (id: string) =>
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
