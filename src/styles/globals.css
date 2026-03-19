@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ─────────────────────────────────────────────── */
+:root {
+  /* Color primitives — strict black & white */
+  --black: #000000;
+  --white: #ffffff;
+
+  /* Dark mode defaults */
+  --bg:             #000000;
+  --bg-section:     #0A0A0A;
+  --bg-light:       #F5F5F5;
+  --text-primary:   #F5F5F5;
+  --text-secondary: #B8B8B8;
+  --text-dark:      #000000;
+  --text-muted:     #555555;
+  --border:         rgba(255,255,255,0.1);
+  --border-light:   rgba(0,0,0,0.1);
+
+  /* Card colors — monochrome */
+  --card-blue:   #0A0A0A;
+  --card-green:  #111111;
+  --card-pink:   #0D0D0D;
+  --card-purple: #141414;
+
+  /* Spacing scale */
+  --section-gap:  120px;
+  --hero-gap:     160px;
+  --heading-gap:  48px;
+  --card-pad:     28px;
+}
+
+/* ─── Base Layer ─────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Dark mode (default) */
+  body {
+    @apply font-sans antialiased;
+    background-color: #000000;
+    color: #F5F5F5;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Light mode */
+  html:not(.dark) body {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+}
+
+/* ─── Utility Layer ──────────────────────────────────────────────────────── */
+@layer utilities {
+
+  /* ── Container ── */
+  .coda-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  @media (max-width: 1024px) {
+    .coda-container {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .coda-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  /* ── Section backgrounds — strict B&W ── */
+  .section-dark {
+    background-color: #000000;
+  }
+
+  .dark .section-dark {
+    background-color: #000000;
+  }
+
+  html:not(.dark) .section-dark {
+    background-color: #0A0A0A;
+  }
+
+  .section-light {
+    background-color: #F5F5F5;
+  }
+
+  .dark .section-light {
+    background-color: #0A0A0A;
+  }
+
+  html:not(.dark) .section-light {
+    background-color: #F5F5F5;
+  }
+
+  /* ── Hero headline ── */
+  .hero-headline {
+    font-size: clamp(72px, 10vw, 120px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Display heading ── */
+  .display-heading {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Stat number ── */
+  .stat-number {
+    font-size: clamp(80px, 12vw, 140px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  /* ── Label text ── */
+  .label-text {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── Product card blob graphic ── */
+  .blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .blob-2 {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  .blob-3 {
+    border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%;
+  }
+
+  /* ── Scrollbar — monochrome ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #000000; }
+  ::-webkit-scrollbar-thumb { background: #333333; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #555555; }
+
+  /* ── No scrollbar ── */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
