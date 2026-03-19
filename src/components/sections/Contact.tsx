@@ -42,8 +42,8 @@ const socialItems = [
     {
         icon: Github,
         label: 'GitHub',
-        value: 'github.com/imtryingpromise',
-        href: 'https://github.com/imtryingpromise',
+        value: 'github.com/imtryingipromise',
+        href: 'https://github.com/imtryingipromise',
         isExternal: true,
     },
 ];
