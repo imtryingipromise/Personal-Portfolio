@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Code2, Wrench, Cpu, Users, Terminal, BookOpen } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 
-interface FeaturesGridProps {
+interface SkillsProps {
     isDark: boolean;
 }
 
-// Skill categories derived strictly from CV
+
 const skillCategories = [
     {
         icon: Code2,
@@ -48,7 +48,7 @@ const skillCategories = [
     },
 ];
 
-export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
+export function Skills({ isDark }: SkillsProps): JSX.Element {
     const bg          = isDark ? '#000000' : '#F0F0F0';
     const textPrimary = isDark ? '#F5F5F5' : '#111111';
     const textMuted   = isDark ? '#B8B8B8' : '#444444';
@@ -63,7 +63,7 @@ export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
             className="w-full"
             style={{ background: bg, paddingTop: 120, paddingBottom: 120 }}
         >
-            <div className="coda-container">
+            <div className="container">
 
                 {/* Section header */}
                 <motion.div
@@ -91,7 +91,7 @@ export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
                     </div>
                 </motion.div>
 
-                {/* 3-col skill card grid — with glow */}
+                {/* Skill card grid */}
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                     initial="hidden"
@@ -127,8 +127,7 @@ export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
                                     (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                 }}
                             >
-                                {/* Glow effect */}
-                                <GlowingEffect
+                                <BorderGlow
                                     spread={32}
                                     glow={false}
                                     disabled={false}
@@ -137,7 +136,7 @@ export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
                                     borderWidth={1.5}
                                 />
 
-                                {/* Icon — with glow */}
+                                {/* Icon */}
                                 <div
                                     className="relative w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
                                     style={{
@@ -151,7 +150,7 @@ export function FeaturesGrid({ isDark }: FeaturesGridProps): JSX.Element {
                                         (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
                                     }}
                                 >
-                                    <GlowingEffect
+                                    <BorderGlow
                                         spread={16}
                                         glow={false}
                                         disabled={false}

@@ -2,14 +2,13 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowUpRight, Linkedin, Github } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 
 
 interface ContactProps {
     isDark: boolean;
 }
 
-// Contact items — strictly from CV
 const contactItems = [
     {
         icon: Mail,
@@ -66,10 +65,10 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
             className="w-full"
             style={{ background: bg, paddingTop: 120, paddingBottom: 120 }}
         >
-            <div className="coda-container">
+            <div className="container">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-                    {/* ── Left: CTA copy ── */}
+                    {/* Left: CTA copy */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -102,13 +101,13 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                             internship opportunities, or any project inquiries.
                         </p>
 
-                        {/* Primary CTA — email from CV — with glow */}
+                        {/* Primary CTA */}
                         <div className="flex flex-wrap items-center gap-3 pt-2">
                             <div
                                 className="relative rounded-full"
                                 style={{ border: '1px solid transparent' }}
                             >
-                                <GlowingEffect
+                                <BorderGlow
                                     spread={20}
                                     glow={false}
                                     disabled={false}
@@ -144,7 +143,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                         </div>
                     </motion.div>
 
-                    {/* ── Right: Contact cards — with glow ── */}
+                    {/* Right: Contact cards */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -177,8 +176,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                     (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                 }}
                             >
-                                {/* Glow effect */}
-                                <GlowingEffect
+                                <BorderGlow
                                     spread={28}
                                     glow={false}
                                     disabled={false}
@@ -187,7 +185,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                     borderWidth={1.5}
                                 />
 
-                                {/* Icon badge — with glow */}
+                                {/* Icon badge */}
                                 <div
                                     className="relative w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
                                     style={{
@@ -201,7 +199,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                         (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
                                     }}
                                 >
-                                    <GlowingEffect
+                                    <BorderGlow
                                         spread={16}
                                         glow={false}
                                         disabled={false}
@@ -286,7 +284,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                             (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                         }}
                                     >
-                                        <GlowingEffect
+                                        <BorderGlow
                                             spread={16}
                                             glow={false}
                                             disabled={false}
@@ -312,7 +310,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                             </div>
                         </div>
 
-                        {/* Availability badge — with glow */}
+                        {/* Availability badge */}
                         <div
                             className="relative flex items-center gap-3 p-5 rounded-[20px] mt-2"
                             style={{
@@ -320,7 +318,7 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                                 border: `1px solid ${borderColor}`,
                             }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={16}
                                 glow={false}
                                 disabled={false}

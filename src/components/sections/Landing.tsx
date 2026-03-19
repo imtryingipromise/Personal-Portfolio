@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 import GradientBackground from '@/components/ui/gradient-background';
 import { TextScramble } from '@/components/ui/TextScramble';
 import { CountUp } from '@/components/ui/CountUp';
 
-interface HeroProps {
+interface LandingProps {
     isDark: boolean;
 }
 
-export function Hero({ isDark }: HeroProps) {
+export function Landing({ isDark }: LandingProps) {
     const textPrimary   = isDark ? '#F5F5F5' : '#111111';
     const textSecondary = isDark ? '#B8B8B8' : '#444444';
     const borderColor   = isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.15)';
@@ -20,7 +20,7 @@ export function Hero({ isDark }: HeroProps) {
 
     return (
         <section
-            id="hero"
+            id="landing"
             className="w-full relative overflow-hidden"
             style={{
                 minHeight: '100vh',
@@ -57,10 +57,10 @@ export function Hero({ isDark }: HeroProps) {
             </div>
 
             {/* Content Container */}
-            <div className="coda-container relative z-10">
+            <div className="container relative z-10">
                 <div className="flex flex-col items-center text-center gap-8 max-w-5xl mx-auto">
 
-                    {/* Status badge — with glow */}
+                    {/* Status badge */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export function Hero({ isDark }: HeroProps) {
                                 background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)',
                             }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={20}
                                 glow={false}
                                 disabled={false}
@@ -145,7 +145,7 @@ export function Hero({ isDark }: HeroProps) {
                         {cv.summary}
                     </motion.p>
 
-                    {/* CTAs — with glow */}
+                    {/* CTAs */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -157,7 +157,7 @@ export function Hero({ isDark }: HeroProps) {
                             className="relative rounded-full"
                             style={{ border: '1px solid transparent' }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={24}
                                 glow={false}
                                 disabled={false}
@@ -195,7 +195,7 @@ export function Hero({ isDark }: HeroProps) {
                             className="relative rounded-full"
                             style={{ border: `1px solid ${borderColor}` }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={24}
                                 glow={false}
                                 disabled={false}
@@ -230,34 +230,6 @@ export function Hero({ isDark }: HeroProps) {
                         </div>
                     </motion.div>
 
-                    {/* Stats row — CV-accurate */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.45, ease: [0.4, 0, 0.2, 1] }}
-                        className="flex flex-wrap items-center justify-center gap-8"
-                        style={{
-                            borderTop: `1px solid ${borderColor}`,
-                            paddingTop: 32,
-                            width: '100%',
-                        }}
-                    >
-                        {cv.stats.map(({ value, label }) => (
-                            <div key={label} className="flex flex-col items-center gap-1">
-                                <CountUp
-                                    target={value}
-                                    className="font-sans font-black"
-                                    style={{ fontSize: 28, letterSpacing: '-0.02em', color: textPrimary }}
-                                />
-                                <span
-                                    className="font-sans font-normal text-center"
-                                    style={{ fontSize: 13, color: textSecondary }}
-                                >
-                                    {label}
-                                </span>
-                            </div>
-                        ))}
-                    </motion.div>
                 </div>
             </div>
         </section>

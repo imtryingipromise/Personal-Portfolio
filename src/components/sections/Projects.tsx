@@ -10,7 +10,7 @@ import {
     Network,
 } from 'lucide-react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 
 interface ProjectsProps {
     isDark: boolean;
@@ -40,7 +40,6 @@ export function Projects({ isDark }: ProjectsProps) {
     const project     = cv.projects[activeIndex];
     const Icon        = projectIcons[activeIndex];
 
-    // ── Design tokens ────────────────────────────────────────────────────────
     const bg           = isDark ? '#000000' : '#F0F0F0';
     const cardBg       = isDark ? '#0A0A0A'  : '#FFFFFF';
     const visualBg     = isDark ? '#0D0D0D'  : '#E8E8E8';
@@ -61,9 +60,9 @@ export function Projects({ isDark }: ProjectsProps) {
             className="w-full"
             style={{ background: bg, paddingTop: 120, paddingBottom: 120 }}
         >
-            <div className="coda-container">
+            <div className="container">
 
-                {/* ── Section header ── */}
+                {/* Section header */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -88,10 +87,10 @@ export function Projects({ isDark }: ProjectsProps) {
                     </div>
                 </motion.div>
 
-                {/* ── Tabs ── */}
+                {/* Tabs */}
                 <RadixTabs.Root value={activeTab} onValueChange={setActiveTab}>
 
-                    {/* ── Tab trigger list ── */}
+                    {/* Tab trigger list */}
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -124,7 +123,7 @@ export function Projects({ isDark }: ProjectsProps) {
                                         }}
                                     >
                                         {!isActive && (
-                                            <GlowingEffect
+                                            <BorderGlow
                                                 spread={24}
                                                 glow={false}
                                                 disabled={false}
@@ -167,7 +166,7 @@ export function Projects({ isDark }: ProjectsProps) {
                         </RadixTabs.List>
                     </motion.div>
 
-                    {/* ── Content panel ── */}
+                    {/* Content panel */}
                     <motion.div
                         initial={{ opacity: 0, y: 32 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +177,7 @@ export function Projects({ isDark }: ProjectsProps) {
                             className="relative rounded-[28px]"
                             style={{ border: `1px solid ${borderColor}` }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={48}
                                 glow={false}
                                 disabled={false}
@@ -201,7 +200,7 @@ export function Projects({ isDark }: ProjectsProps) {
                                         className="grid grid-cols-1 lg:grid-cols-2"
                                         style={{ minHeight: 460 }}
                                     >
-                                        {/* ── Left: text content ── */}
+                                        {/* Left: text content */}
                                         <div
                                             className="flex flex-col justify-center gap-6 p-10 lg:p-14"
                                             style={{ borderRight: `1px solid ${borderColor}` }}
@@ -273,7 +272,7 @@ export function Projects({ isDark }: ProjectsProps) {
                                             </div>
                                         </div>
 
-                                        {/* ── Right: visual ── */}
+                                        {/* Right: visual */}
                                         <div
                                             className="flex items-center justify-center p-10 lg:p-14"
                                             style={{ background: visualBg }}
@@ -295,7 +294,7 @@ export function Projects({ isDark }: ProjectsProps) {
                                                     (e.currentTarget as HTMLElement).style.transform = 'translateY(0) scale(1)';
                                                 }}
                                             >
-                                                <GlowingEffect
+                                                <BorderGlow
                                                     spread={32}
                                                     glow={false}
                                                     disabled={false}
@@ -335,7 +334,7 @@ export function Projects({ isDark }: ProjectsProps) {
                         </div>
                     </motion.div>
 
-                    {/* ── Project counter + dot indicators ── */}
+                    {/* Project counter + dot indicators */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}

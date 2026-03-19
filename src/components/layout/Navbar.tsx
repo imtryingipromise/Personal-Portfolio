@@ -50,10 +50,10 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                     WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
                 }}
             >
-                <div className="coda-container">
+                <div className="container">
                     <div className="flex h-16 items-center justify-between gap-8">
 
-                        {/* ── Logo ── */}
+                        {/* Logo */}
                         <button
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                             className="flex-shrink-0 flex items-center gap-2.5 group"
@@ -78,7 +78,7 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                             </span>
                         </button>
 
-                        {/* ── Desktop center nav ── */}
+                        {/* Desktop center nav */}
                         <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
                             {navLinks.map(({ label, id }) => (
                                 <button
@@ -102,7 +102,7 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                             ))}
                         </nav>
 
-                        {/* ── Right actions ── */}
+                        {/* Right actions */}
                         <div className="flex items-center gap-3 flex-shrink-0">
                             {/* Theme toggle */}
                             <button
@@ -163,7 +163,7 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                 </div>
             </header>
 
-            {/* ── Mobile menu ── */}
+            {/* Mobile menu */}
             <AnimatePresence>
                 {mobileOpen && (
                     <motion.div
@@ -177,7 +177,7 @@ export function Navbar({ isDark, onToggle }: NavbarProps) {
                             borderBottom: `1px solid ${borderColor}`,
                         }}
                     >
-                        <div className="coda-container py-4 flex flex-col gap-1">
+                        <div className="container py-4 flex flex-col gap-1">
                             {navLinks.map(({ label, id }) => (
                                 <button
                                     key={id}

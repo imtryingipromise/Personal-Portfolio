@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 
 interface AboutProps {
     isDark: boolean;
@@ -28,9 +28,9 @@ export function About({ isDark }: AboutProps): JSX.Element {
             className="w-full relative overflow-hidden"
             style={{ background: isDark ? '#0A0A0A' : '#E8E8E8', paddingTop: 120, paddingBottom: 120 }}
         >
-            <div className="coda-container relative z-10">
+            <div className="container relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-                    {/* ── Left: Media block ── */}
+                    {/* Left: Media block */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -57,7 +57,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                 (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                             }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={40}
                                 glow={false}
                                 disabled={false}
@@ -97,7 +97,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                     (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
                                 }}
                             >
-                                <GlowingEffect
+                                <BorderGlow
                                     spread={24}
                                     glow={false}
                                     disabled={false}
@@ -132,7 +132,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                 (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                             }}
                         >
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={24}
                                 glow={false}
                                 disabled={false}
@@ -167,7 +167,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                         </div>
                     </motion.div>
 
-                    {/* ── Right: Content ── */}
+                    {/* Right: Content */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -249,7 +249,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                         (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                     }}
                                 >
-                                    <GlowingEffect
+                                    <BorderGlow
                                         spread={20}
                                         glow={false}
                                         disabled={false}
@@ -288,7 +288,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                 className="relative rounded-full"
                                 style={{ border: '1px solid transparent' }}
                             >
-                                <GlowingEffect
+                                <BorderGlow
                                     spread={20}
                                     glow={false}
                                     disabled={false}
@@ -325,7 +325,7 @@ export function About({ isDark }: AboutProps): JSX.Element {
                                 className="relative rounded-full"
                                 style={{ border: `1px solid ${borderColor}` }}
                             >
-                                <GlowingEffect
+                                <BorderGlow
                                     spread={20}
                                     glow={false}
                                     disabled={false}

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── CSS Custom Properties ─────────────────────────────────────────────── */
 :root {
   --black: #000000;
   --white: #ffffff;
@@ -20,12 +19,11 @@
   --card-pink:   #0D0D0D;
   --card-purple: #141414;
   --section-gap:  120px;
-  --hero-gap:     160px;
+  --landing-gap:  160px;
   --heading-gap:  48px;
   --card-pad:     28px;
 }
 
-/* ─── Base Layer ─────────────────────────────────────────────────────────── */
 @layer base {
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -43,9 +41,8 @@
   }
 }
 
-/* ─── Utility Layer ──────────────────────────────────────────────────────── */
 @layer utilities {
-  .coda-container {
+  .container {
     width: 100%;
     max-width: 1280px;
     margin-left: auto;
@@ -55,11 +52,11 @@
   }
 
   @media (max-width: 1024px) {
-    .coda-container { padding-left: 32px; padding-right: 32px; }
+    .container { padding-left: 32px; padding-right: 32px; }
   }
 
   @media (max-width: 640px) {
-    .coda-container { padding-left: 20px; padding-right: 20px; }
+    .container { padding-left: 20px; padding-right: 20px; }
   }
 
   .section-dark { background-color: #000000; }
@@ -70,7 +67,7 @@
   .dark .section-light { background-color: #0A0A0A; }
   html:not(.dark) .section-light { background-color: #F0F0F0; }
 
-  .hero-headline {
+  .landing-headline {
     font-size: clamp(72px, 10vw, 120px);
     font-weight: 900;
     line-height: 0.95;
@@ -102,13 +99,11 @@
   .blob-2 { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
   .blob-3 { border-radius: 50% 50% 30% 70% / 40% 60% 40% 60%; }
 
-  /* ── Scrollbar — dark mode ── */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #000000; }
   ::-webkit-scrollbar-thumb { background: #333333; border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: #555555; }
 
-  /* ── Scrollbar — light mode ── */
   html:not(.dark) ::-webkit-scrollbar-track { background: #E0E0E0; }
   html:not(.dark) ::-webkit-scrollbar-thumb { background: #AAAAAA; border-radius: 2px; }
   html:not(.dark) ::-webkit-scrollbar-thumb:hover { background: #888888; }

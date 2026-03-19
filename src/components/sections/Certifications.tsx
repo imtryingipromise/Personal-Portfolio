@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Award, Calendar, Clock } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 
 interface CertificationsProps {
     isDark: boolean;
@@ -21,7 +21,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
             className="w-full"
             style={{ background: bg, paddingTop: 120, paddingBottom: 120 }}
         >
-            <div className="coda-container">
+            <div className="container">
 
                 {/* Section header */}
                 <motion.div
@@ -47,7 +47,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
                     </div>
                 </motion.div>
 
-                {/* Certification cards — with glow */}
+                {/* Certification cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {cv.certifications.map((cert, i) => (
                         <motion.div
@@ -72,8 +72,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
                                 (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                             }}
                         >
-                            {/* Glow effect */}
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={36}
                                 glow={false}
                                 disabled={false}
@@ -92,7 +91,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
 
                             {/* Header row */}
                             <div className="flex items-start gap-5">
-                                {/* Icon box — with glow */}
+                                {/* Icon box */}
                                 <div
                                     className="relative w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                                     style={{
@@ -100,7 +99,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
                                         border: `1px solid ${borderColor}`,
                                     }}
                                 >
-                                    <GlowingEffect
+                                    <BorderGlow
                                         spread={16}
                                         glow={false}
                                         disabled={false}
@@ -150,7 +149,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
                                     </span>
                                 </div>
 
-                                {/* Status badge — with glow */}
+                                {/* Status badge */}
                                 <div
                                     className="relative inline-flex items-center gap-2 rounded-full px-3 py-1"
                                     style={{
@@ -158,7 +157,7 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
                                         border: `1px solid ${borderColor}`,
                                     }}
                                 >
-                                    <GlowingEffect
+                                    <BorderGlow
                                         spread={12}
                                         glow={false}
                                         disabled={false}

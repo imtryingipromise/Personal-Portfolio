@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 
 interface MetricsProps {
     isDark: boolean;
@@ -18,9 +18,9 @@ export function Metrics({ isDark }: MetricsProps) {
             className="w-full"
             style={{ background: bg, paddingTop: 120, paddingBottom: 120 }}
         >
-            <div className="coda-container">
+            <div className="container">
 
-                {/* Large centered hero stat */}
+                {/* Large centered stat */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export function Metrics({ isDark }: MetricsProps) {
                     </p>
                 </motion.div>
 
-                {/* 4-col stat grid — with glow */}
+                {/* Stat grid */}
                 <motion.div
                     className="grid grid-cols-2 lg:grid-cols-4 gap-0"
                     initial="hidden"
@@ -72,8 +72,7 @@ export function Metrics({ isDark }: MetricsProps) {
                                 borderTop:  `1px solid ${borderColor}`,
                             }}
                         >
-                            {/* Glow effect */}
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={24}
                                 glow={false}
                                 disabled={false}

@@ -2,7 +2,7 @@
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
-import { GlowingEffect } from '@/components/ui/GlowingEffect';
+import { BorderGlow } from '@/components/ui/BorderGlow';
 import { GradientBars } from '@/components/ui/gradient-bars-background';
 
 
@@ -36,7 +36,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
 
 
             
-            <div className="coda-container relative z-10">
+            <div className="container relative z-10">
 
 
 
@@ -59,7 +59,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                     </h2>
                 </motion.div>
 
-                {/* Education cards — with glow */}
+                {/* Education cards */}
                 <div className="flex flex-col gap-6">
                     {cv.education.map((edu, i) => (
                         <motion.div
@@ -75,9 +75,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                             }}
 
                         >
-                            {/* Glow effect */}
-
-                            <GlowingEffect
+                            <BorderGlow
                                 spread={40}
                                 glow={false}
                                 disabled={false}
@@ -95,8 +93,6 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                             />
 
                             <div className="flex flex-col md:flex-row md:items-start gap-8">
-                                {/* Icon — with glow */}
-
                                 <div
                                     className="relative w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
                                     style={{
@@ -114,7 +110,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                         (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                     }}
                                 >
-                                    <GlowingEffect
+                                    <BorderGlow
                                         spread={20}
                                         glow={false}
                                         disabled={false}
@@ -155,7 +151,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                             </div>
                                         </div>
 
-                                        {/* Duration badge — with glow */}
+                                        {/* Duration badge */}
                                         <div
                                             className="relative inline-flex items-center gap-2 rounded-full px-4 py-2 flex-shrink-0"
                                             style={{
@@ -163,7 +159,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                                 border: `1px solid ${borderColor}`,
                                             }}
                                         >
-                                            <GlowingEffect
+                                            <BorderGlow
                                                 spread={16}
                                                 glow={false}
                                                 disabled={false}
@@ -181,7 +177,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                         </div>
                                     </div>
 
-                                    {/* Note badge — with glow */}
+                                    {/* Note badge */}
                                     <div
                                         className="relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 self-start"
                                         style={{
@@ -189,7 +185,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                             border: `1px solid ${borderColor}`,
                                         }}
                                     >
-                                        <GlowingEffect
+                                        <BorderGlow
                                             spread={12}
                                             glow={false}
                                             disabled={false}
@@ -215,7 +211,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                         style={{ background: borderColor }}
                                     />
 
-                                    {/* Key subjects from CV skills — with glow */}
+                                    {/* Focus areas */}
                                     <div className="flex flex-col gap-3">
                                         <span className="label-text" style={{ color: textMuted }}>
                                             Focus Areas
@@ -249,7 +245,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                                         (e.currentTarget as HTMLElement).style.borderColor = borderColor;
                                                     }}
                                                 >
-                                                    <GlowingEffect
+                                                    <BorderGlow
                                                         spread={12}
                                                         glow={false}
                                                         disabled={false}

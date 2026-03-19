@@ -4,7 +4,6 @@ interface FooterProps {
     isDark: boolean;
 }
 
-// Navigation groups — portfolio sections only, no fabricated links
 const footerNav = [
     {
         heading: 'Portfolio',
@@ -40,10 +39,10 @@ export function Footer({ isDark }: FooterProps) {
 
     return (
         <footer style={{ background: bg, borderTop: `1px solid ${borderColor}` }}>
-            <div className="coda-container py-16">
+            <div className="container py-16">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
-                    {/* ── Brand column ── */}
+                    {/* Brand column */}
                     <div className="flex flex-col gap-5">
                         {/* Logo */}
                         <button
@@ -72,7 +71,7 @@ export function Footer({ isDark }: FooterProps) {
                             </span>
                         </button>
 
-                        {/* Tagline — from CV title */}
+                        {/* Tagline */}
                         <p
                             className="font-sans font-normal text-[14px] leading-relaxed max-w-[200px]"
                             style={{ color: textMuted }}
@@ -80,7 +79,7 @@ export function Footer({ isDark }: FooterProps) {
                             {cv.title}
                         </p>
 
-                        {/* Email — from CV */}
+                        {/* Email */}
                         <a
                             href={`mailto:${cv.contact.email}`}
                             className="font-sans font-medium text-[13px] transition-colors duration-200 break-all"
@@ -96,7 +95,7 @@ export function Footer({ isDark }: FooterProps) {
                         </a>
                     </div>
 
-                    {/* ── Nav columns ── */}
+                    {/* Nav columns */}
                     {footerNav.map(({ heading, links }) => (
                         <div key={heading} className="flex flex-col gap-4">
                             <span
@@ -134,7 +133,7 @@ export function Footer({ isDark }: FooterProps) {
                     ))}
                 </div>
 
-                {/* ── Bottom bar ── */}
+                {/* Bottom bar */}
                 <div
                     className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8"
                     style={{ borderTop: `1px solid ${borderColor}` }}

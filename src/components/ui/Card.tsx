@@ -30,7 +30,6 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
 );
 Card.displayName = 'Card';
 
-/* ─── Product Card ──────────────────────────────────────────────────────── */
 
 export type ProductCardColor = 'blue' | 'green' | 'pink' | 'purple';
 
@@ -103,7 +102,7 @@ export function ProductCard({ color, title, description, icon, className }: Prod
             }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
         >
-            {/* ── Graphic area (top 60%) ── */}
+            {/* Graphic area */}
             <div
                 className="relative flex-1 flex items-center justify-center overflow-hidden"
                 style={{ minHeight: 220 }}
@@ -178,7 +177,7 @@ export function ProductCard({ color, title, description, icon, className }: Prod
                 )}
             </div>
 
-            {/* ── Content area (bottom) ── */}
+            {/* Content area */}
             <div
                 className="relative z-10 flex flex-col gap-2 p-7"
                 style={{

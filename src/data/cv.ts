@@ -1,9 +1,4 @@
-// ─── CV Data — Single Source of Truth ────────────────────────────────────────
-// All content is extracted strictly from Mohammad Muqeet Mir's CV.
-// Do NOT add, invent, or modify any information.
-
 export const cv = {
-  // ── Personal ──────────────────────────────────────────────────────────────
   fullName:  'Mohammad Muqeet Mir',
   shortName: 'Muqeet Mir',
   initials:  'MM',
@@ -12,14 +7,12 @@ export const cv = {
   summary:
     'AI-focused CS student who loves turning ideas into working software. From building concurrent systems in C++ to predicting flight delays with data, I enjoy tackling complex problems across the full stack. Currently looking for an internship where I can grow and make an impact.',
 
-  // ── Contact ───────────────────────────────────────────────────────────────
   contact: {
     email:   'muqeetadi165@gmail.com',
     phone:   '+60 17-884 1037',
     address: 'Kuala Lumpur, Malaysia',
   },
 
-  // ── Education ─────────────────────────────────────────────────────────────
   education: [
     {
       degree:      'Bachelor of Science in Computer Science (AI)',
@@ -29,7 +22,6 @@ export const cv = {
     },
   ],
 
-  // ── Skills ────────────────────────────────────────────────────────────────
   skills: {
     programmingLanguages: ['Python', 'Java', 'C++', 'C#', 'SQL'],
     webDevelopment: ['HTML', 'CSS', 'JavaScript'],
@@ -49,7 +41,6 @@ export const cv = {
     ],
   },
 
-  // ── Projects ──────────────────────────────────────────────────────────────
   projects: [
     {
       name:        'Airport Simulation System',
@@ -89,7 +80,6 @@ export const cv = {
     },
   ],
 
-  // ── Certifications ────────────────────────────────────────────────────────
   certifications: [
     {
       name:     'Red Hat System Administration II',
@@ -99,7 +89,6 @@ export const cv = {
     },
   ],
 
-  // ── Stats (derived from CV — no fabrication) ──────────────────────────────
   stats: [
     { value: '6',    label: 'Academic Projects',    sub: 'End-to-end solutions'     },
     { value: '5',    label: 'Programming Languages', sub: 'Python, Java, C++, C#, SQL' },
