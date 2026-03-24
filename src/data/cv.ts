@@ -89,6 +89,34 @@ export const cv = {
     },
   ],
 
+  experience: [
+    {
+      role:         'Booth Leader',
+      event:        'Merdeka Fiesta Event',
+      organization: 'Asia Pacific University',
+      year:         '2024',
+      highlights: [
+        'Led and managed booths as part of the CC2 module',
+        'Coordinated team members and delegated tasks effectively',
+        'Ensured smooth operation and resolved on-site issues',
+        'Developed leadership, communication, and teamwork skills',
+      ],
+    },
+  ],
+
+  references: [
+    {
+      name:     'Ts. Dr. Maythem',
+      title:    'Assistant Professor, APU',
+      email:    'maythem.abbas@apu.edu.my',
+    },
+    {
+      name:     'Mary Ting',
+      title:    'Senior Lecturer, APU',
+      email:    'maryting@apu.edu.my',
+    },
+  ],
+
   stats: [
     { value: '6',    label: 'Academic Projects',    sub: 'End-to-end solutions'     },
     { value: '5',    label: 'Programming Languages', sub: 'Python, Java, C++, C#, SQL' },
