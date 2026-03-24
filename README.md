@@ -4,7 +4,7 @@ My personal portfolio website built with React, TypeScript, and Vite. Features a
 
 ## Live Site
 
-[muqeetmir.vercel.app](https://muqeetmir.vercel.app)
+[mnmsportfolio.vercel.app](https://mnmsportfolio.vercel.app)
 
 ## Tech Stack
 
