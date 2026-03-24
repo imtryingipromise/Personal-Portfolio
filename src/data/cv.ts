@@ -23,7 +23,7 @@ export const cv = {
   ],
 
   skills: {
-    programmingLanguages: ['Python', 'Java', 'C++', 'C#', 'SQL'],
+    programmingLanguages: ['Python', 'Java', 'C++', 'C#', 'SQL', 'R'],
     webDevelopment: ['HTML', 'CSS', 'JavaScript'],
     technicalSkills: [
       'Object-Oriented Programming (OOP)',
@@ -32,6 +32,15 @@ export const cv = {
       'CRUD Operations',
     ],
     tools: ['MySQL', 'Linux (Ubuntu)', 'RStudio', 'Virtual Machines'],
+    systemsAdmin: ['Linux (Ubuntu & Rocky)', 'DNS', 'FTP', 'Email Server', 'Virtual Machines'],
+    focusAreas: [
+      'Artificial Intelligence',
+      'Data Structures',
+      'Object-Oriented Programming',
+      'Database Systems',
+      'Network Administration',
+      'Systems Programming',
+    ],
     softSkills: [
       'Strong communication skills',
       'Leadership abilities',
@@ -119,7 +128,7 @@ export const cv = {
 
   stats: [
     { value: '6',    label: 'Academic Projects',    sub: 'End-to-end solutions'     },
-    { value: '5',    label: 'Programming Languages', sub: 'Python, Java, C++, C#, SQL' },
+    { value: '6',    label: 'Programming Languages', sub: 'Python, Java, C++, C#, SQL, R' },
     { value: '3',    label: 'Web Technologies',      sub: 'HTML, CSS, JavaScript'    },
     { value: '2027', label: 'Expected Graduation',   sub: 'Asia Pacific University'  },
   ],

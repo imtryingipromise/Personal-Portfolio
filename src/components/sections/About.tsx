@@ -9,10 +9,10 @@ interface AboutProps {
 }
 
 const skills = [
-    { category: 'Languages',   items: ['Python', 'Java', 'C++', 'C#', 'SQL'] },
-    { category: 'Web',         items: ['HTML', 'CSS', 'JavaScript'] },
-    { category: 'Tools',       items: ['MySQL', 'RStudio', 'Linux (Ubuntu)', 'Virtual Machines'] },
-    { category: 'Core',        items: ['OOP', 'Data Structures', 'Multithreading', 'CRUD'] },
+    { category: 'Languages',   items: [...cv.skills.programmingLanguages] },
+    { category: 'Web',         items: [...cv.skills.webDevelopment] },
+    { category: 'Tools',       items: [...cv.skills.tools] },
+    { category: 'Core',        items: [...cv.skills.technicalSkills] },
 ];
 
 export function About({ isDark }: AboutProps): JSX.Element {

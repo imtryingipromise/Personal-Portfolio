@@ -38,7 +38,7 @@ const skillCategories = [
         icon: BookOpen,
         title: 'Systems & Administration',
         description: 'Hands-on experience setting up and securing real server environments from scratch.',
-        tags: ['Linux (Ubuntu & Rocky)', 'DNS', 'FTP', 'Email Server', 'Virtual Machines'],
+        tags: cv.skills.systemsAdmin,
     },
     {
         icon: Users,

@@ -217,14 +217,7 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                                             Focus Areas
                                         </span>
                                         <div className="flex flex-wrap gap-2">
-                                            {[
-                                                'Artificial Intelligence',
-                                                'Data Structures',
-                                                'Object-Oriented Programming',
-                                                'Database Systems',
-                                                'Network Administration',
-                                                'Systems Programming',
-                                            ].map((subject) => (
+                                            {cv.skills.focusAreas.map((subject) => (
                                                 <span
                                                     key={subject}
                                                     className="relative font-sans font-medium rounded-full px-3 py-1 transition-all duration-300"
