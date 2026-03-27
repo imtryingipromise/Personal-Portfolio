@@ -120,8 +120,8 @@ export function Skills({ isDark }: SkillsProps): JSX.Element {
                             <motion.div
                                 key={category.title}
                                 variants={{
-                                    hidden:  { opacity: 0, y: 40, filter: 'blur(10px)', scale: 0.95 },
-                                    visible: { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] } },
+                                    hidden:  { opacity: 0, y: 40, scale: 0.95 },
+                                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] } },
                                 }}
                                 className="relative group flex flex-col gap-5 p-7 rounded-[28px] transition-all duration-300"
                                 style={{

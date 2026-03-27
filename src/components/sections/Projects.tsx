@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import * as RadixTabs from '@radix-ui/react-tabs';
 import {
     Gamepad2,
-    FileQuestion,
+    LayoutGrid,
     Plane,
     BarChart3,
     Database,
@@ -28,7 +28,7 @@ const featuredProjects = cv.projects.filter((p) => 'featured' in p && p.featured
 const otherProjects    = cv.projects.filter((p) => !('featured' in p && p.featured));
 
 const featuredTabLabels = ['Dream Platformer', 'SmartQuiz'];
-const featuredIcons     = [Gamepad2, FileQuestion];
+const featuredIcons     = [Gamepad2, LayoutGrid];
 
 const otherIcons: Record<string, typeof Plane> = {
     'Airport Simulation System':      Plane,
