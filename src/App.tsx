@@ -12,6 +12,7 @@ import { NoiseOverlay } from '@/components/ui/NoiseOverlay';
 import { ParticleField } from '@/components/ui/ParticleField';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 import { MarqueeBanner } from '@/components/ui/MarqueeBanner';
+import { KonamiEaster } from '@/components/ui/KonamiEaster';
 
 function App() {
     const { isDark, toggle } = useTheme();
@@ -30,6 +31,7 @@ function App() {
             <ParticleField isDark={isDark} />
             <NoiseOverlay />
 
+            <KonamiEaster isDark={isDark} />
             <Navbar isDark={isDark} onToggle={toggle} />
             <main className="flex-grow relative z-[1]">
                 <Landing isDark={isDark} />

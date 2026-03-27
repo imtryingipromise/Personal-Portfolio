@@ -4,7 +4,7 @@ import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
 import GradientBackground from '@/components/ui/gradient-background';
 import { TextScramble } from '@/components/ui/TextScramble';
-import { CountUp } from '@/components/ui/CountUp';
+import { WordReveal } from '@/components/ui/WordReveal';
 
 interface LandingProps {
     isDark: boolean;
@@ -62,9 +62,9 @@ export function Landing({ isDark }: LandingProps) {
 
                     {/* Status badge */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                        initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                     >
                         <div
                             className="relative inline-flex items-center gap-2 font-sans font-medium rounded-full px-4 py-1.5"
@@ -96,9 +96,9 @@ export function Landing({ isDark }: LandingProps) {
 
                     {/* Name heading — scramble reveal */}
                     <motion.h1
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+                        initial={{ opacity: 0, scale: 0.92, filter: 'blur(12px)' }}
+                        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                        transition={{ duration: 1, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                         className="font-sans font-black uppercase tracking-tight"
                         style={{
                             fontSize: 'clamp(44px, 8vw, 96px)',
@@ -115,41 +115,39 @@ export function Landing({ isDark }: LandingProps) {
                     </motion.h1>
 
 
-                    {/* Title */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                        className="font-sans font-semibold"
+                    {/* Title — word-by-word reveal */}
+                    <WordReveal
+                        text={cv.title}
+                        onScroll={false}
+                        delay={0.6}
+                        stagger={0.06}
+                        className="font-sans font-semibold justify-center"
                         style={{
                             fontSize: 'clamp(18px, 2.5vw, 24px)',
                             color: textSecondary,
                             lineHeight: 1.4,
                         }}
-                    >
-                        {cv.title}
-                    </motion.p>
+                    />
 
-                    {/* Summary */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="font-sans font-normal max-w-2xl"
+                    {/* Summary — word-by-word reveal */}
+                    <WordReveal
+                        text={cv.summary}
+                        onScroll={false}
+                        delay={1}
+                        stagger={0.02}
+                        className="font-sans font-normal max-w-2xl justify-center"
                         style={{
                             fontSize: 16,
                             lineHeight: 1.7,
                             color: textSecondary,
                         }}
-                    >
-                        {cv.summary}
-                    </motion.p>
+                    />
 
                     {/* CTAs */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                        initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        transition={{ duration: 0.7, delay: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
                         className="flex flex-wrap items-center justify-center gap-3"
                     >
                         {/* Primary — solid button */}

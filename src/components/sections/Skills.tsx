@@ -3,6 +3,8 @@ import { Code2, Wrench, Cpu, Users, Terminal, BookOpen } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
+import { WordReveal } from '@/components/ui/WordReveal';
+import { LineReveal } from '@/components/ui/LineReveal';
 
 interface SkillsProps {
     isDark: boolean;
@@ -70,26 +72,36 @@ export function Skills({ isDark }: SkillsProps): JSX.Element {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                    className="flex flex-col gap-4 mb-12"
+                    transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="flex flex-col gap-4 mb-6"
                 >
-                    <span className="label-text" style={{ color: textMuted }}>
+                    <motion.span
+                        className="label-text"
+                        style={{ color: textMuted }}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
                         Competencies
-                    </span>
+                    </motion.span>
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                        <h2 className="display-heading" style={{ color: textPrimary }}>
-                            Skills
-                        </h2>
-                        <p
+                        <WordReveal
+                            text="Skills"
+                            className="display-heading"
+                            style={{ color: textPrimary }}
+                            stagger={0.06}
+                        />
+                        <WordReveal
+                            text={`${cv.skills.programmingLanguages.length} programming languages, ${cv.skills.tools.length} tools, and a range of technical and soft skills developed through academic projects.`}
                             className="font-sans font-normal max-w-sm"
                             style={{ fontSize: 16, lineHeight: 1.6, color: textMuted }}
-                        >
-                            {cv.skills.programmingLanguages.length} programming languages,
-                            {' '}{cv.skills.tools.length} tools, and a range of technical
-                            and soft skills developed through academic projects.
-                        </p>
+                            stagger={0.02}
+                            delay={0.15}
+                        />
                     </div>
                 </motion.div>
+                <LineReveal isDark={isDark} className="mb-12" />
 
                 {/* Skill card grid */}
                 <motion.div
@@ -99,7 +111,7 @@ export function Skills({ isDark }: SkillsProps): JSX.Element {
                     viewport={{ once: true, margin: '-60px' }}
                     variants={{
                         hidden: {},
-                        visible: { transition: { staggerChildren: 0.08 } },
+                        visible: { transition: { staggerChildren: 0.1 } },
                     }}
                 >
                     {skillCategories.map((category) => {
@@ -108,8 +120,8 @@ export function Skills({ isDark }: SkillsProps): JSX.Element {
                             <motion.div
                                 key={category.title}
                                 variants={{
-                                    hidden:  { opacity: 0, y: 32 },
-                                    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
+                                    hidden:  { opacity: 0, y: 40, filter: 'blur(10px)', scale: 0.95 },
+                                    visible: { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] } },
                                 }}
                                 className="relative group flex flex-col gap-5 p-7 rounded-[28px] transition-all duration-300"
                                 style={{

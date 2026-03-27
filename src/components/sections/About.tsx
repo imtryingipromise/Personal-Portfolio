@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
+import { WordReveal } from '@/components/ui/WordReveal';
+import { LineReveal } from '@/components/ui/LineReveal';
 
 interface AboutProps {
     isDark: boolean;
@@ -169,50 +171,57 @@ export function About({ isDark }: AboutProps): JSX.Element {
 
                     {/* Right: Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: 40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: 40, filter: 'blur(6px)' }}
+                        whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                        transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
                         className="flex flex-col gap-8"
                     >
                         <div className="flex flex-col gap-4">
-                            <span className="label-text" style={{ color: textMuted }}>
+                            <motion.span
+                                className="label-text"
+                                style={{ color: textMuted }}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                            >
                                 About Me
-                            </span>
-                            <h2
+                            </motion.span>
+                            <WordReveal
+                                text="Turning complex problems into clean solutions"
                                 className="display-heading"
                                 style={{ color: textPrimary }}
-                            >
-                                Turning complex problems into clean solutions
-                            </h2>
+                                stagger={0.04}
+                                delay={0.1}
+                            />
                         </div>
 
-                        {/* Bio paragraphs */}
+                        <LineReveal isDark={isDark} delay={0.3} />
+
+                        {/* Bio paragraphs — staggered word reveals */}
                         <div className="flex flex-col gap-5">
-                            <p
+                            <WordReveal
+                                text="I'm Muqeet — a CS student at APU specializing in AI. I got into programming because I liked the idea of building things that actually work, and since then I've been diving into everything from concurrent C++ systems to full-stack web apps."
                                 className="font-sans font-normal"
                                 style={{ fontSize: 16, lineHeight: 1.75, color: textMuted }}
-                            >
-                                I'm Muqeet — a CS student at APU specializing in AI. I got into programming
-                                because I liked the idea of building things that actually work, and since then
-                                I've been diving into everything from concurrent C++ systems to full-stack web apps.
-                            </p>
-                            <p
+                                stagger={0.015}
+                                delay={0.15}
+                            />
+                            <WordReveal
+                                text="My projects range from a multithreaded airport simulator to a 4-level narrative platformer with boss fights and NPC dialogue. I enjoy the challenge of taking a vague idea and turning it into something polished — whether that's a database schema, a game engine, or a server config."
                                 className="font-sans font-normal"
                                 style={{ fontSize: 16, lineHeight: 1.75, color: textMuted }}
-                            >
-                                My projects range from a multithreaded airport simulator to a 4-level narrative
-                                platformer with boss fights and NPC dialogue. I enjoy the challenge of taking a
-                                vague idea and turning it into something polished — whether that's a database
-                                schema, a game engine, or a server config.
-                            </p>
-                            <p
+                                stagger={0.015}
+                                delay={0.2}
+                            />
+                            <WordReveal
+                                text="Right now I'm looking for an internship where I can contribute meaningfully, learn fast, and work alongside people who care about writing good software."
                                 className="font-sans font-normal"
                                 style={{ fontSize: 16, lineHeight: 1.75, color: textMuted }}
-                            >
-                                Right now I'm looking for an internship where I can contribute meaningfully,
-                                learn fast, and work alongside people who care about writing good software.
-                            </p>
+                                stagger={0.015}
+                                delay={0.25}
+                            />
                         </div>
 
                         {/* Skills grid — staggered reveal */}

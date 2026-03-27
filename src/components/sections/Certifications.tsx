@@ -3,6 +3,7 @@ import { Award, Calendar, Clock } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
+import { WordReveal } from '@/components/ui/WordReveal';
 
 interface CertificationsProps {
     isDark: boolean;
@@ -31,19 +32,30 @@ export function Certifications({ isDark }: CertificationsProps): JSX.Element {
                     transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     className="flex flex-col gap-4 mb-14"
                 >
-                    <span className="label-text" style={{ color: textMuted }}>
+                    <motion.span
+                        className="label-text"
+                        style={{ color: textMuted }}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
                         Credentials
-                    </span>
+                    </motion.span>
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                        <h2 className="display-heading" style={{ color: textPrimary }}>
-                            Certifications
-                        </h2>
-                        <p
+                        <WordReveal
+                            text="Certifications"
+                            className="display-heading"
+                            style={{ color: textPrimary }}
+                            stagger={0.04}
+                        />
+                        <WordReveal
+                            text="Professional certifications earned."
                             className="font-sans font-normal max-w-sm"
                             style={{ fontSize: 16, lineHeight: 1.6, color: textMuted }}
-                        >
-                            Professional certifications earned.
-                        </p>
+                            stagger={0.03}
+                            delay={0.15}
+                        />
                     </div>
                 </motion.div>
 

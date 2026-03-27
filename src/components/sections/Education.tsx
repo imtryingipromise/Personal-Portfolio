@@ -4,6 +4,7 @@ import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
 import { GradientBars } from '@/components/ui/gradient-bars-background';
+import { WordReveal } from '@/components/ui/WordReveal';
 
 
 interface EducationProps {
@@ -51,12 +52,22 @@ export function Education({ isDark }: EducationProps): JSX.Element {
                     className="flex flex-col gap-4 mb-14"
                 >
 
-                    <span className="label-text" style={{ color: textMuted }}>
+                    <motion.span
+                        className="label-text"
+                        style={{ color: textMuted }}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                    >
                         Academic Background
-                    </span>
-                    <h2 className="display-heading" style={{ color: textPrimary }}>
-                        Education
-                    </h2>
+                    </motion.span>
+                    <WordReveal
+                        text="Education"
+                        className="display-heading"
+                        style={{ color: textPrimary }}
+                        stagger={0.06}
+                    />
                 </motion.div>
 
                 {/* Education cards */}

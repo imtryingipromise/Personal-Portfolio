@@ -3,6 +3,7 @@ import { Mail, MapPin, ArrowUpRight, Linkedin, Github } from 'lucide-react';
 import type { JSX } from 'react';
 import { cv } from '@/data/cv';
 import { BorderGlow } from '@/components/ui/BorderGlow';
+import { WordReveal } from '@/components/ui/WordReveal';
 
 
 interface ContactProps {
@@ -74,12 +75,22 @@ export function Contact({ isDark }: ContactProps): JSX.Element {
                         className="flex flex-col gap-8"
                     >
                         <div className="flex flex-col gap-4">
-                            <span className="label-text" style={{ color: textMuted }}>
+                            <motion.span
+                                className="label-text"
+                                style={{ color: textMuted }}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5 }}
+                            >
                                 Contact
-                            </span>
-                            <h2 className="display-heading" style={{ color: textPrimary }}>
-                                Get in Touch
-                            </h2>
+                            </motion.span>
+                            <WordReveal
+                                text="Get in Touch"
+                                className="display-heading"
+                                style={{ color: textPrimary }}
+                                stagger={0.06}
+                            />
                         </div>
 
                         <p
